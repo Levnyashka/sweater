@@ -23,20 +23,8 @@ public class Message {
         this.tag = tag;
     }
 
-    public void setText(String text){
+    public void setText(String text) {
         this.text = text;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public void setTag(String tag) {
-        this.tag = tag;
-    }
-
-    public Integer getId() {
-        return id;
     }
 
     public String getText() {
@@ -44,7 +32,19 @@ public class Message {
         return text;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public String getTag() {
         return tag;
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
     }
 }

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Collections;
 import java.util.Map;
@@ -18,17 +19,21 @@ public class RegistrationController {
     @Autowired
     private UserRepo userRepo;
 
+    // Дефолтный переход, когда пользователь переходит по ссылке Get-запрос
     @GetMapping("/registration")
-    public String registration() {
+    public String registration(Map<String,Object> model) {
+        //
+        model.put("message","Введите данные нового пользователя");
         return "registration";
     }
 
+    // Ответ на запрос на регитсрацию
     @PostMapping("/registration")
     public String addUser(User user, Map<String,Object> model) {
         User userFromDb = userRepo.findByUsername(user.getUsername());
 
         if (userFromDb != null){
-            model.put("message","User exist!");
+            model.put("message","User exist");
             return "registration";
         }
 

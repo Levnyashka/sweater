@@ -55,7 +55,7 @@ public class User implements UserDetails{
     public Long getId() {
         return id;
     }
-
+    // Getters Setters
     public void setId(Long id) {
         this.id = id;
     }
@@ -87,4 +87,11 @@ public class User implements UserDetails{
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
+
+    // Методы пользователя
+
+    public boolean isAdmin(){
+        return roles.contains(Role.ADMIN);
+    }
+
 }
